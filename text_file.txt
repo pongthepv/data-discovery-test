@@ -1,1 +1,51 @@
-q
+MATCH (d:Database)-[:CLUSTER]->(c:Cluster)
+ -[:SCHEMA]->(s:Schema)-[:TABLE]->(t:Table)
+  WHERE d.name = $database_engine 
+  and c.name = $database_name 
+  and s.name = $database_schema 
+ RETURN d.name as database_engine
+ ,c.name as database_name
+ ,s.name as database_schema
+ ,t.name as table_name
+ ,t.publisher_last_updated_epoch_ms as last_updated_ms
+
+
+MATCH (t:Table)
+WHERE ID(tid) = 679 
+CREATE (t)-[d:DESCRIPTION]->(desc)
+RETURN type(d)
+
+MATCH (t:Table)
+WHERE ID(t) = 679
+RETURN type(t)
+
+
+CREATE (t)-[d:DESCRIPTION]->(desc)
+
+
+MATCH (t:Table)-[desc_link:DESCRIPTION]->(desc:Description)
+WHERE ID(t) = 679
+DETACH DELETE desc
+
+MATCH (t:Table)
+WHERE ID(t) = 679 
+CREATE (t)-[d:DESCRIPTION]->(desc:Description { description: 'ssssssss' })-[d_of:DESCRIPTION_OF]->(t)
+RETURN type(d)
+
+MATCH (t:Table)
+WHERE ID(t) = 679 
+CREATE (t)-[tagged_by_related:TAGGED_BY]->(tag:Tag { key: 'kaidee_service',tag_type:'default' })-[tag_related:TAG]->(t)
+RETURN t
+
+CREATE (desc:Description { description: 'ssssssss' })
+
+MATCH (desc:Description)
+WHERE description = 'ssssssss'
+RETURN desc
+
+
+MATCH (n:Person { id: 678 })
+DELETE n
+
+MATCH (n) where id(n) = 1198
+DETACH DELETE n
