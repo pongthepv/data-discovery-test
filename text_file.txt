@@ -13,8 +13,8 @@ MATCH (d:Database)-[:CLUSTER]->(c:Cluster)
 MATCH (t:Table)->[:COLUMN]->(col:Column)
 WHERE ID(t) = $table_id and col.name = $column_name
 RETURN ID(col)
-
-
+b67O%7k61FI3
+ 
 MATCH (t:Table)
 WHERE ID(tid) = 679 
 CREATE (t)-[d:DESCRIPTION]->(desc)
@@ -31,6 +31,10 @@ CREATE (t)-[d:DESCRIPTION]->(desc)
 MATCH (t:Table)-[desc_link:DESCRIPTION]->(desc:Description)
 WHERE ID(t) = 679
 DETACH DELETE desc
+
+MATCH (t:Table)-[tag_link:TAG]->(tag:Tag)
+WHERE ID(t) = 679
+DETACH DELETE tag
 
 MATCH (t:Table)
 WHERE ID(t) = 679 
