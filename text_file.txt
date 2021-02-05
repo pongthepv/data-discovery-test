@@ -9,7 +9,6 @@ MATCH (d:Database)-[:CLUSTER]->(c:Cluster)
  ,t.name as table_name
  ,t.publisher_last_updated_epoch_ms as last_updated_ms
 
-
 MATCH (t:Table)->[:COLUMN]->(col:Column)
 WHERE ID(t) = $table_id and col.name = $column_name
 RETURN ID(col)
@@ -35,6 +34,12 @@ DETACH DELETE desc
 MATCH (t:Table)-[tag_link:TAG]->(tag:Tag)
 WHERE ID(t) = 679
 DETACH DELETE tag
+
+MATCH (u:User)
+RETURN u
+
+CREATE (u:User { email: 'mr.pongthep@gmail.com',name: 'mr.pongthep@gmail.com',key:'mr.pongthep@gmail.com' })
+
 
 MATCH (t:Table)
 WHERE ID(t) = 679 
