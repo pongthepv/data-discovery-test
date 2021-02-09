@@ -9,6 +9,8 @@ MATCH (d:Database)-[:CLUSTER]->(c:Cluster)
  ,t.name as table_name
  ,t.publisher_last_updated_epoch_ms as last_updated_ms
 
+
+
  
  
 
