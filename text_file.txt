@@ -59,6 +59,8 @@ WHERE description = 'ssssssss'
 RETURN desc
 
 
+
+
 MATCH (n:Person { id: 678 })
 DELETE n
 
