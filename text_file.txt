@@ -8,7 +8,6 @@ MATCH (d:Database)-[:CLUSTER]->(c:Cluster)
  ,s.name as database_schema
  ,t.name as table_name
  ,t.publisher_last_updated_epoch_ms as last_updated_msss
-
 MATCH (t:Table)->[:COLUMN]->(col:Column)
 WHERE ID(t) = $table_id and col.name = $column_name
 RETURN ID(col)
