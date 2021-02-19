@@ -26,7 +26,6 @@ RETURN type(t)
 
 CREATE (t)-[d:DESCRIPTION]->(desc)
 
-
 MATCH (t:Table)-[desc_link:DESCRIPTION]->(desc:Description)
 WHERE ID(t) = 679
 DETACH DELETE desc
