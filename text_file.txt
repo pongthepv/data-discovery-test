@@ -12,8 +12,6 @@ MATCH (t:Table)->[:COLUMN]->(col:Column)
 WHERE ID(t) = $table_id and col.name = $column_name
 RETURN ID(col)
 
-
-
 MATCH (t:Table)
 WHERE ID(tid) = 679 
 CREATE (t)-[d:DESCRIPTION]->(desc)
